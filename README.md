@@ -4,11 +4,13 @@ Demos, examples and playground for [Keycloak](https://www.keycloak.org) extensio
 
 [![CI build](https://github.com/dasniko/keycloak-extensions-demo/actions/workflows/maven.yml/badge.svg)](https://github.com/dasniko/keycloak-extensions-demo/actions/workflows/maven.yml)
 ![](https://img.shields.io/github/license/dasniko/keycloak-extensions-demo?label=License)
-![](https://img.shields.io/badge/Keycloak-18.0.0-blue)
+![](https://img.shields.io/badge/Keycloak-22.0-blue)
 
-## Keycloak User Storage Provider
+## Keycloak User Storage Providers
 
-[PeanutsUserProvider](./user-provider) - demo user storage provider, providing some members of the peanuts in a read-only mode, via an external API.
+[Flintstones](./flintstones-userprovider) - Demo user storage provider, providing some members of the Flintstones family in a read-only mode, from an in-memory repository.
+
+[Peanuts](./peanuts-userprovider) - Demo user storage provider, providing some members of the Peanuts family in a read-only mode, via an external API.
 
 ## Keycloak Authenticators
 
@@ -16,11 +18,16 @@ Demos, examples and playground for [Keycloak](https://www.keycloak.org) extensio
 
 [Captcha Authenticator](./captcha) - demo authenticator in which the user needs to solve a math task and submit the result, before successful authentication.
 
+[MFA Authenticator](./mfa-authenticator) - very simple(!!!) demo authenticator which prints a generated OTP to stdout.
+
+[Conditional HttpHeaders Authenticator](./conditional-headers-authenticator) - condition for authenticators which will decide upon a header and given value (or negated value) if `true`/`false`.
+
 ## Keycloak Event Listeners
 
 ### Session Restrictor
 
 [Highlander](./event-listener) - demo event listener for Keycloak, allowing only the last session to survive (_Highlander mode - there must only be one!_), if a user logs in on multiple browsers/devices.
+_(This was for long time not possible in Keycloak ootb, thus this event listener; since KC v19(?) this is natively supported.)_
 
 ### Event Forwarder
 
@@ -36,11 +43,15 @@ Demos, examples and playground for [Keycloak](https://www.keycloak.org) extensio
 
 ## Keycloak REST endpoint/resource extension
 
-[RestExample](./rest-endpoint) - demo implementation for custom REST resources within Keycloak, public (unauthenticated) and secured (authenticated) endpoints.
+[Custom Rest Resource](./rest-endpoint) - demo implementation for custom REST resources within Keycloak, public (unauthenticated) and secured (authenticated) endpoints.
 
 ## Custom Required Action
 
 [MobileNumberRequiredAction](./requiredaction) - example which enforces the user to update its mobile phone number, if not already set.
+
+## Custom Email Template & Sender Provider
+
+[Email Provider](./email) for custom templates in JSON format (no actual emal, but for processing through external/3rd party services) and sending emails via a vendor specific (here: AWS SES) protocol, instead of SMTP.
 
 ## Custom Action Token
 
